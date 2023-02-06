@@ -14,5 +14,5 @@ interface IERC165 is IERC165Internal {
      * @param interfaceId interface id
      * @return bool whether interface is supported
      */
-    function supportsInterface(bytes4 interfaceId) external view returns (bool);
+    // function supportsInterface(bytes4 interfaceId) external view returns (bool);
 }

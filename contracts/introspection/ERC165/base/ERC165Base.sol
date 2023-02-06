@@ -14,7 +14,7 @@ abstract contract ERC165Base is IERC165Base, ERC165BaseInternal {
     /**
      * @inheritdoc IERC165
      */
-    function supportsInterface(bytes4 interfaceId) public view returns (bool) {
-        return _supportsInterface(interfaceId);
-    }
+    // function supportsInterface(bytes4 interfaceId) public view returns (bool) {
+    //     return _supportsInterface(interfaceId);
+    // }
 }
