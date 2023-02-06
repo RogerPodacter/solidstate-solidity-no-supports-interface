@@ -1,6 +1,6 @@
 {
-  "name": "root",
-  "private": true,
+  "name": "@solidstate/library",
+  "version": "0.0.52",
   "author": "Nick Barry",
   "license": "MIT",
   "scripts": {
@@ -11,6 +11,9 @@
     "upgrade-dependencies": "yarn-up -e '@solidstate/library,@solidstate/spec,@solidstate/typechain-types' && yarn upgrade"
   },
   "main": "lib/dist/index.js",
+  "files": [
+    "lib/dist/"
+  ],
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.5",
     "@nomiclabs/hardhat-ethers": "^2.2.1",
