@@ -25,69 +25,69 @@ abstract contract SolidStateDiamond is
     SafeOwnable,
     ERC165Base
 {
-    constructor() {
-        bytes4[] memory selectors = new bytes4[](12);
-        uint256 selectorIndex;
+    // constructor() {
+    //     bytes4[] memory selectors = new bytes4[](12);
+    //     uint256 selectorIndex;
 
-        // register DiamondFallback
+    //     // register DiamondFallback
 
-        selectors[selectorIndex++] = IDiamondFallback
-            .getFallbackAddress
-            .selector;
-        selectors[selectorIndex++] = IDiamondFallback
-            .setFallbackAddress
-            .selector;
+    //     selectors[selectorIndex++] = IDiamondFallback
+    //         .getFallbackAddress
+    //         .selector;
+    //     selectors[selectorIndex++] = IDiamondFallback
+    //         .setFallbackAddress
+    //         .selector;
 
-        _setSupportsInterface(type(IDiamondFallback).interfaceId, true);
+    //     _setSupportsInterface(type(IDiamondFallback).interfaceId, true);
 
-        // register DiamondWritable
+    //     // register DiamondWritable
 
-        selectors[selectorIndex++] = IDiamondWritable.diamondCut.selector;
+    //     selectors[selectorIndex++] = IDiamondWritable.diamondCut.selector;
 
-        _setSupportsInterface(type(IDiamondWritable).interfaceId, true);
+    //     _setSupportsInterface(type(IDiamondWritable).interfaceId, true);
 
-        // register DiamondReadable
+    //     // register DiamondReadable
 
-        selectors[selectorIndex++] = IDiamondReadable.facets.selector;
-        selectors[selectorIndex++] = IDiamondReadable
-            .facetFunctionSelectors
-            .selector;
-        selectors[selectorIndex++] = IDiamondReadable.facetAddresses.selector;
-        selectors[selectorIndex++] = IDiamondReadable.facetAddress.selector;
+    //     selectors[selectorIndex++] = IDiamondReadable.facets.selector;
+    //     selectors[selectorIndex++] = IDiamondReadable
+    //         .facetFunctionSelectors
+    //         .selector;
+    //     selectors[selectorIndex++] = IDiamondReadable.facetAddresses.selector;
+    //     selectors[selectorIndex++] = IDiamondReadable.facetAddress.selector;
 
-        _setSupportsInterface(type(IDiamondReadable).interfaceId, true);
+    //     _setSupportsInterface(type(IDiamondReadable).interfaceId, true);
 
-        // register ERC165
+    //     // register ERC165
 
-        selectors[selectorIndex++] = IERC165.supportsInterface.selector;
+    //     selectors[selectorIndex++] = IERC165.supportsInterface.selector;
 
-        _setSupportsInterface(type(IERC165).interfaceId, true);
+    //     _setSupportsInterface(type(IERC165).interfaceId, true);
 
-        // register SafeOwnable
+    //     // register SafeOwnable
 
-        selectors[selectorIndex++] = Ownable.owner.selector;
-        selectors[selectorIndex++] = SafeOwnable.nomineeOwner.selector;
-        selectors[selectorIndex++] = Ownable.transferOwnership.selector;
-        selectors[selectorIndex++] = SafeOwnable.acceptOwnership.selector;
+    //     selectors[selectorIndex++] = Ownable.owner.selector;
+    //     selectors[selectorIndex++] = SafeOwnable.nomineeOwner.selector;
+    //     selectors[selectorIndex++] = Ownable.transferOwnership.selector;
+    //     selectors[selectorIndex++] = SafeOwnable.acceptOwnership.selector;
 
-        _setSupportsInterface(type(IERC173).interfaceId, true);
+    //     _setSupportsInterface(type(IERC173).interfaceId, true);
 
-        // diamond cut
+    //     // diamond cut
 
-        FacetCut[] memory facetCuts = new FacetCut[](1);
+    //     FacetCut[] memory facetCuts = new FacetCut[](1);
 
-        facetCuts[0] = FacetCut({
-            target: address(this),
-            action: FacetCutAction.ADD,
-            selectors: selectors
-        });
+    //     facetCuts[0] = FacetCut({
+    //         target: address(this),
+    //         action: FacetCutAction.ADD,
+    //         selectors: selectors
+    //     });
 
-        _diamondCut(facetCuts, address(0), '');
+    //     _diamondCut(facetCuts, address(0), '');
 
-        // set owner
+    //     // set owner
 
-        _setOwner(msg.sender);
-    }
+    //     _setOwner(msg.sender);
+    // }
 
     receive() external payable {}
 

@@ -8,7 +8,7 @@ yarn-error.log
 lerna-debug.log
 
 typechain-types/
-dist/
+# dist/
 
 artifacts/
 cache/
